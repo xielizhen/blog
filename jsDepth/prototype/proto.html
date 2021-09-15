@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重新认识构造函数、原型和原型链 | 谢丽珍的博客</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.6238c46d.css" as="style"><link rel="preload" href="/blog/assets/js/app.89f383a4.js" as="script"><link rel="preload" href="/blog/assets/js/2.8cb57d9a.js" as="script"><link rel="preload" href="/blog/assets/js/29.574b1b0a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.6d899c98.js"><link rel="prefetch" href="/blog/assets/js/11.d63fb081.js"><link rel="prefetch" href="/blog/assets/js/12.a8646807.js"><link rel="prefetch" href="/blog/assets/js/13.c4c95b48.js"><link rel="prefetch" href="/blog/assets/js/14.fc845116.js"><link rel="prefetch" href="/blog/assets/js/15.40c19c7c.js"><link rel="prefetch" href="/blog/assets/js/16.9a882754.js"><link rel="prefetch" href="/blog/assets/js/17.bee5d254.js"><link rel="prefetch" href="/blog/assets/js/18.03c813ee.js"><link rel="prefetch" href="/blog/assets/js/19.48fd3986.js"><link rel="prefetch" href="/blog/assets/js/20.664783f8.js"><link rel="prefetch" href="/blog/assets/js/21.76a48c1c.js"><link rel="prefetch" href="/blog/assets/js/22.7fbaf24f.js"><link rel="prefetch" href="/blog/assets/js/23.c550d051.js"><link rel="prefetch" href="/blog/assets/js/24.f97b1889.js"><link rel="prefetch" href="/blog/assets/js/25.66ff2605.js"><link rel="prefetch" href="/blog/assets/js/26.2f81e48a.js"><link rel="prefetch" href="/blog/assets/js/27.39cd8db3.js"><link rel="prefetch" href="/blog/assets/js/28.419f2493.js"><link rel="prefetch" href="/blog/assets/js/3.1d141728.js"><link rel="prefetch" href="/blog/assets/js/30.d1756869.js"><link rel="prefetch" href="/blog/assets/js/31.b7cf509d.js"><link rel="prefetch" href="/blog/assets/js/4.77dc32b7.js"><link rel="prefetch" href="/blog/assets/js/5.36f2fb2a.js"><link rel="prefetch" href="/blog/assets/js/6.80f439fa.js"><link rel="prefetch" href="/blog/assets/js/7.a4b637a2.js"><link rel="prefetch" href="/blog/assets/js/8.8c20e491.js"><link rel="prefetch" href="/blog/assets/js/9.4118e32e.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.6238c46d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">谢丽珍的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/blog/zyqq/wheel.html" class="nav-link">
+  交流
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/blog/zyqq/wheel.html" class="nav-link">
+  交流
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/jsDepth/context" class="sidebar-heading clickable"><span>调用堆栈</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/jsDepth/prototype" class="sidebar-heading clickable router-link-active open"><span>原型和原型链</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/jsDepth/prototype/proto.html" aria-current="page" class="active sidebar-link">从原型到原型链</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/jsDepth/prototype/proto.html#构造函数创建对象" class="sidebar-link">构造函数创建对象</a></li></ul></li><li><a href="/blog/jsDepth/prototype/inherit.html" class="sidebar-link">继承的多种方式以及优缺点</a></li><li><a href="/blog/jsDepth/prototype/new.html" class="sidebar-link">new的模拟实现</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/articles" class="sidebar-heading clickable"><span>零散思绪</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="重新认识构造函数、原型和原型链"><a href="#重新认识构造函数、原型和原型链" class="header-anchor">#</a> 重新认识构造函数、原型和原型链</h1> <p>JavaScript 中没有类的概念的，主要通过原型链来实现继承。通常情况下，继承意味着复制操作，然而 JavaScript默认并不会复制对象的属性，相反，JavaScript只是在两个对象之间创建一个关联（原型对象指针），这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，委托的说法反而更准确些。</p> <h2 id="构造函数创建对象"><a href="#构造函数创建对象" class="header-anchor">#</a> 构造函数创建对象</h2> <p>constructor 返回创建实例对象时构造函数的引用。此属性的值是对函数本身的引用，而不是一个包含函数名称的字符串。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Person</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Person<span class="token punctuation">;</span> <span class="token comment">// true</span>
+p<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Object<span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre></div><p>构造函数本身就是一个函数，与普通函数没有任何区别，不过为了规范一般将其首字母大写。构造函数和普通函数的区别在于，使用 new 生成实例的函数就是构造函数，直接调用的就是普通函数。</p> <h3 id="constructor-值只读吗"><a href="#constructor-值只读吗" class="header-anchor">#</a> constructor 值只读吗</h3></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/jsDepth/context/vo.html" class="prev">
+        JavaScript深入之变量对象
+      </a></span> <span class="next"><a href="/blog/jsDepth/prototype/inherit.html">
+        继承的多种方式以及优缺点
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.89f383a4.js" defer></script><script src="/blog/assets/js/2.8cb57d9a.js" defer></script><script src="/blog/assets/js/29.574b1b0a.js" defer></script>
+  </body>
+</html>
